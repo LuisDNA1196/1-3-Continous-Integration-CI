@@ -1,0 +1,20 @@
+name: CI - basic check
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  run-basic:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Run a simple command
+        run: |
+          echo "CI está funcionando"
+          echo "Commit: $GITHUB_SHA"
+
